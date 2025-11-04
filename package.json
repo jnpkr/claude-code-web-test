@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit",
     "payload": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" payload",
     "generate:types": "payload generate:types",
-    "generate:importmap": "payload generate:importmap"
+    "generate:importmap": "payload generate:importmap",
+    "postinstall": "npm run generate:importmap || echo 'Warning: Could not generate importmap. Run npm run generate:importmap manually.'"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.3.1",

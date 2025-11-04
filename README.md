@@ -27,6 +27,12 @@ A production-ready Payload CMS application built with Next.js, featuring Postgre
 npm install
 ```
 
+The `postinstall` script will automatically attempt to generate the Payload import map. If this fails, you can manually run:
+
+```bash
+npm run generate:importmap
+```
+
 ### 2. Environment Configuration
 
 Copy the example environment file:
@@ -57,7 +63,17 @@ Start PostgreSQL using Docker Compose:
 docker compose -f docker-compose.dev.yml up -d
 ```
 
-### 4. Run Development Server
+### 4. Verify Payload Files (Optional but Recommended)
+
+The import map should have been generated automatically during installation. To verify or regenerate it:
+
+```bash
+npm run generate:importmap
+```
+
+This command generates the `src/importMap.ts` file which is required for Payload's admin panel to function correctly. Run this command if you encounter any import errors or after modifying Payload collections.
+
+### 5. Run Development Server
 
 ```bash
 npm run dev
@@ -69,23 +85,26 @@ Visit:
 - Admin Panel: http://localhost:3000/admin
 - GraphQL Playground: http://localhost:3000/api/graphql
 
-### 5. Create First Admin User
+### 6. Create First Admin User
 
 Navigate to http://localhost:3000/admin and create your first admin user through the UI.
 
 ## Development Commands
 
-| Command                  | Description                       |
-| ------------------------ | --------------------------------- |
-| `npm run dev`            | Start development server          |
-| `npm run build`          | Build for production              |
-| `npm run start`          | Start production server           |
-| `npm run lint`           | Run ESLint                        |
-| `npm run lint:fix`       | Fix ESLint issues                 |
-| `npm run format`         | Format code with Prettier         |
-| `npm run format:check`   | Check code formatting             |
-| `npm run typecheck`      | Run TypeScript type checking      |
-| `npm run generate:types` | Generate Payload TypeScript types |
+| Command                      | Description                                             |
+| ---------------------------- | ------------------------------------------------------- |
+| `npm run dev`                | Start development server                                |
+| `npm run build`              | Build for production                                    |
+| `npm run start`              | Start production server                                 |
+| `npm run lint`               | Run ESLint                                              |
+| `npm run lint:fix`           | Fix ESLint issues                                       |
+| `npm run format`             | Format code with Prettier                               |
+| `npm run format:check`       | Check code formatting                                   |
+| `npm run typecheck`          | Run TypeScript type checking                            |
+| `npm run generate:types`     | Generate Payload TypeScript types                       |
+| `npm run generate:importmap` | Generate Payload import map (required before first run) |
+
+**Note:** You must run `npm run generate:importmap` after installation and whenever you modify Payload collections or configuration.
 
 ## Production Deployment
 
@@ -219,6 +238,7 @@ This project is optimized for AI-assisted development with:
 2. Use `npm run lint:fix` to auto-fix common issues
 3. Run `npm run format` to ensure consistent formatting
 4. Regenerate types after modifying collections: `npm run generate:types`
+5. Regenerate import map after changing Payload config: `npm run generate:importmap`
 
 ## Environment Variables Reference
 
@@ -280,6 +300,21 @@ npm run build
 # Regenerate Payload types
 npm run generate:types
 ```
+
+### Import Map Errors
+
+If you see errors about missing `@/importMap` or the admin panel doesn't load:
+
+```bash
+# Generate the import map
+npm run generate:importmap
+```
+
+**Note:** The import map must be regenerated whenever you:
+
+- Add or remove Payload collections
+- Modify collection configurations
+- Update the Payload config file
 
 ## License
 
