@@ -1,0 +1,53 @@
+{
+  "name": "payload-cms-project",
+  "version": "1.0.0",
+  "description": "Payload CMS project with Next.js, Postgres, and R2 storage",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" next dev",
+    "build": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" next build",
+    "start": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" next start",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings 0",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "typecheck": "tsc --noEmit",
+    "payload": "cross-env NODE_OPTIONS=\"${NODE_OPTIONS} --no-deprecation\" payload",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "^3.3.1",
+    "@payloadcms/next": "^3.3.1",
+    "@payloadcms/plugin-cloud-storage": "^3.0.1",
+    "@payloadcms/richtext-lexical": "^3.3.1",
+    "@payloadcms/storage-s3": "^3.0.1",
+    "@payloadcms/ui": "^3.3.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "graphql": "^16.9.0",
+    "next": "^15.0.3",
+    "payload": "^3.3.1",
+    "postgres": "^3.4.4",
+    "react": "^19.0.0-rc-66855b96-20241106",
+    "react-dom": "^19.0.0-rc-66855b96-20241106",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.6",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18.20.2",
+    "npm": ">=10.0.0"
+  }
+}
