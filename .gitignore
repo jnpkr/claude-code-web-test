@@ -41,7 +41,7 @@ lerna-debug.log*
 # Payload
 /media
 payload-types.ts
-src/importMap.ts
+src/app/(payload)/admin/importMap.js
 
 # TypeScript
 *.tsbuildinfo

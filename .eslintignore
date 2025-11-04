@@ -8,3 +8,4 @@ public
 *.config.ts
 payload-types.ts
 next-env.d.ts
+src/app/(payload)/admin/importMap.js

@@ -71,7 +71,7 @@ The import map should have been generated automatically during installation. To 
 npm run generate:importmap
 ```
 
-This command generates the `src/importMap.ts` file which is required for Payload's admin panel to function correctly. Run this command if you encounter any import errors or after modifying Payload collections.
+This command generates the `src/app/(payload)/admin/importMap.js` file which is required for Payload's admin panel to function correctly. Run this command if you encounter any import errors or after modifying Payload collections.
 
 ### 5. Run Development Server
 

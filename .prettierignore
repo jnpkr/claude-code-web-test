@@ -9,3 +9,4 @@ yarn.lock
 pnpm-lock.yaml
 payload-types.ts
 next-env.d.ts
+src/app/(payload)/admin/importMap.js
